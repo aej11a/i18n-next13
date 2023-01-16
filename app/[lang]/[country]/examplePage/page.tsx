@@ -1,5 +1,9 @@
-import { getTranslator } from "@/i18n";
-import { getLocalePartsFrom, locales, ValidLocale } from "@/i18n";
+import {
+  getLocalePartsFrom,
+  locales,
+  ValidLocale,
+  getTranslator,
+} from "@/i18n";
 
 export async function generateStaticParams() {
   return locales.map((locale) => getLocalePartsFrom({ locale }));
