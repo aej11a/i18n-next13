@@ -2,10 +2,5 @@
   "welcome": {
     "helloWorld": "Hello World!",
     "happyYear": "Happy {{ year }}!"
-  },
-  "searchbar": {
-    "search": "Search",
-    "searchPlaceholder": "Search for a movie, tv show, person...",
-    "closeSearch": "Close Search"
   }
 }

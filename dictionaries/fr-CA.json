@@ -2,10 +2,5 @@
   "welcome": {
     "helloWorld": "Salut le Monde!",
     "happyYear": "Bonne année {{ year }}!"
-  },
-  "searchbar": {
-    "search": "Rechercher",
-    "searchPlaceholder": "Rechercher un film, une série, un acteur...",
-    "closeSearch": "Fermer la recherche"
   }
 }
