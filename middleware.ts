@@ -39,6 +39,7 @@ const findBestMatchingLocale = (acceptLangHeader: string) => {
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+  const query = request.nextUrl.search;
 
   const defaultLocaleParts = getLocalePartsFrom({ locale: defaultLocale });
   const currentPathnameParts = getLocalePartsFrom({ pathname });
@@ -56,7 +57,7 @@ export function middleware(request: NextRequest) {
         pathname.replace(
           `/${defaultLocaleParts.lang}/${defaultLocaleParts.country}`,
           pathname.startsWith("/") ? "/" : ""
-        ),
+        ) + query,
         request.url
       )
     );
@@ -78,14 +79,14 @@ export function middleware(request: NextRequest) {
       const matchedLocaleParts = getLocalePartsFrom({ locale: matchedLocale });
       return NextResponse.redirect(
         new URL(
-          `/${matchedLocaleParts.lang}/${matchedLocaleParts.country}${pathname}`,
+          `/${matchedLocaleParts.lang}/${matchedLocaleParts.country}${pathname}${query}`,
           request.url
         )
       );
     } else {
       return NextResponse.rewrite(
         new URL(
-          `/${defaultLocaleParts.lang}/${defaultLocaleParts.country}${pathname}`,
+          `/${defaultLocaleParts.lang}/${defaultLocaleParts.country}${pathname}${query}`,
           request.url
         )
       );
